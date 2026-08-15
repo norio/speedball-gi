@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Afterimage Court — SPEEDBALL GI</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <header id="hud">
+      <div class="title">SPEEDBALL GI · AFTERIMAGE COURT</div>
+      <div class="sub">a compact colonnade for reading indirect color · press G to compare with direct light</div>
+      <div class="gi-readout" aria-live="polite">
+        <span>GI field</span>
+        <strong id="gi-state">BUILDING</strong>
+        <span id="gi-detail">placing probes</span>
+      </div>
+      <nav class="scene-nav" aria-label="Scene navigation">
+        <a class="scene-link" href="./">← Back to Sponza</a>
+        <a class="scene-link" href="./ballpool.html">Open the GI ball pool →</a>
+      </nav>
+    </header>
+    <div id="status">initializing WebGPU…</div>
+    <script type="module" src="/src/simple.js"></script>
+  </body>
+</html>

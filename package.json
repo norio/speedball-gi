@@ -1,0 +1,27 @@
+{
+  "name": "speedball-gi-sample",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Official SPEEDBALL GI Sponza demo (WebGPU DDGI + Sky), adapted for Vite",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0",
+    "npm": ">=11.10.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@perplexdotgg/bounce": "^1.8.1",
+    "lil-gui": "^0.21.0",
+    "speedball-gi": "^0.6.7",
+    "stats-gl": "^4.2.3",
+    "three": "0.185.1",
+    "three-mesh-bvh": "0.9.14"
+  },
+  "devDependencies": {
+    "vite": "^8.2.1"
+  }
+}

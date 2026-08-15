@@ -1,0 +1,59 @@
+/* Concrete Connect / E16 branding (see css/concrete_connect.css). */
+:root { --mono: 'JetBrains Mono', ui-monospace, "Cascadia Code", Menlo, monospace; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #9a9a9a; color: #111;
+  font: 12px/1.5 var(--mono); }
+#c { display: block; width: 100vw; height: 100vh; touch-action: none; }
+
+/* ── HUD: clean text overlay (no panel) ─────────────────────────────────── */
+#hud { position: fixed; left: 14px; top: 12px; pointer-events: none; max-width: 46ch; z-index: 10;
+  color: #f2f2f2; text-shadow: 0 1px 2px #000, 0 0 2px #000c; }
+#hud .title { font: 800 13px/1.5 Verdana, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+#hud .sub { color: #d6d6d6; }
+.scene-nav { display: flex; gap: 12px; margin-top: 7px; pointer-events: auto; }
+.scene-link { width: fit-content; color: #fff; text-decoration-color: #ffffff80; text-underline-offset: 3px; }
+.scene-link:hover, .scene-link:focus-visible { color: #ffd6ad; text-decoration-color: currentColor; }
+.gi-readout { display: flex; align-items: baseline; gap: 8px; margin-top: 7px; color: #bbb; }
+.gi-readout strong { color: #ffd6ad; letter-spacing: 0.08em; }
+.gi-readout strong.live { color: #87e4bd; }
+.gi-readout strong.off { color: #ff8b70; }
+
+/* ── status / loading overlay ───────────────────────────────────────────── */
+#status { position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  padding: 14px 22px; color: #111; white-space: pre; text-align: center;
+  background: linear-gradient(to bottom, #eeeeee, #b8b8b8); border: 1px solid #242424; border-radius: 6px;
+  box-shadow: 6px 8px 20px rgba(0,0,0,0.45), inset 1px 1px 2px rgba(255,255,255,0.9);
+  font: 700 11px/1.5 var(--mono); text-shadow: 1px 1px 0 #fff; }
+#status.err { border-color: #6b2330; color: #7a0e1c; background: linear-gradient(to bottom, #f0dede, #cc9a9a); text-shadow: none; }
+#status.hide { display: none; }
+
+/* lil-gui keeps its default dark skin. Mobile only repositions the panel. */
+
+.stats-gl {
+  left: 14px !important;
+  top: auto !important;
+  bottom: 12px !important;
+  z-index: 20;
+}
+
+@media (max-width: 700px), (max-height: 560px) {
+  #hud { left: 10px; top: max(8px, env(safe-area-inset-top)); max-width: calc(100vw - 20px); }
+  #hud .title { font-size: 11px; letter-spacing: 0.08em; }
+  #hud .sub { display: none; }
+  .scene-nav, .gi-readout { margin-top: 4px; }
+  #status { width: min(320px, calc(100vw - 32px)); box-sizing: border-box; white-space: pre-wrap; }
+  .lil-gui { --width: calc(100vw - 16px); }
+  .lil-gui.lil-root {
+    position: fixed !important;
+    left: 8px !important; right: 8px !important; top: auto !important;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+    width: auto !important; max-height: min(34vh, 360px); overflow-y: auto;
+    overscroll-behavior: contain; touch-action: pan-y;
+  }
+  .lil-gui.lil-root.lil-closed { max-height: 32px; overflow: hidden; }
+  .stats-gl {
+    left: auto !important;
+    right: 8px !important;
+    top: max(8px, env(safe-area-inset-top)) !important;
+    bottom: auto !important;
+  }
+}

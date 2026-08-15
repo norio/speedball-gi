@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ball Pool — SPEEDBALL GI</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <header id="hud">
+      <div class="title">SPEEDBALL GI · BALL POOL</div>
+      <div class="sub">move to stir · hold to rain balls · use two fingers on touch · press G to compare</div>
+      <div class="gi-readout" aria-live="polite">
+        <span>GI field</span>
+        <strong id="gi-state">BUILDING</strong>
+        <span id="gi-detail">placing probes</span>
+      </div>
+      <nav class="scene-nav" aria-label="Scene navigation">
+        <a class="scene-link" href="./">Sponza</a>
+        <a class="scene-link" href="./simple.html">Afterimage Court</a>
+      </nav>
+    </header>
+    <div id="status">initializing WebGPU…</div>
+    <script type="module" src="/src/ballpool.js"></script>
+  </body>
+</html>
