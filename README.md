@@ -1,5 +1,7 @@
 # SPEEDBALL GI WebGPU Showcase
 
+![SPEEDBALL GI Sponza and Ball Pool scenes](assets/sponza-ballpool.webp)
+
 An interactive Three.js showcase for real-time, BVH-traced dynamic diffuse global illumination (DDGI) with [`speedball-gi`](https://github.com/cl0nazepamm/speedball).
 
 This Vite application extends the upstream Sponza demo with two focused test scenes: a compact procedural court for reading indirect color and a physics-driven ball pool for observing GI around moving instanced geometry.
