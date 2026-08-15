@@ -333,8 +333,9 @@ window.scene = scene; window.renderer = renderer; window.markGiMaterialsDirty = 
 if (compactControls.matches) gui.close();
 
 // ── Load Sponza ────────────────────────────────────────────────────────────────
+const sponzaUrl = `${import.meta.env.BASE_URL}Sponza/glTF/Sponza.gltf`;
 setStatus('loading Sponza…');
-new GLTFLoader().load('/Sponza/glTF/Sponza.gltf', (gltf) => {
+new GLTFLoader().load(sponzaUrl, (gltf) => {
   const sponza = gltf.scene;
   sponza.traverse((o) => {
     if (!o.isMesh) return;
@@ -383,7 +384,7 @@ new GLTFLoader().load('/Sponza/glTF/Sponza.gltf', (gltf) => {
 }, (xhr) => {
   if (xhr.total) setStatus('loading Sponza… ' + Math.min(100, Math.round(xhr.loaded / xhr.total * 100)) + '%');
 }, (err) => {
-  setStatus('Failed to load /Sponza/glTF/Sponza.gltf\n' + (err?.message || err), true);
+  setStatus(`Failed to load ${sponzaUrl}\n` + (err?.message || err), true);
 });
 
 // ── Render loop ───────────────────────────────────────────────────────────────

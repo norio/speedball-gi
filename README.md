@@ -4,7 +4,7 @@ An interactive Three.js showcase for real-time, BVH-traced dynamic diffuse globa
 
 This Vite application extends the upstream Sponza demo with two focused test scenes: a compact procedural court for reading indirect color and a physics-driven ball pool for observing GI around moving instanced geometry.
 
-[Open the upstream Sponza demo](https://cl0nazepamm.github.io/speedball/) · [View `speedball-gi` on npm](https://www.npmjs.com/package/speedball-gi)
+[Open the live demo](https://norio.github.io/speedball-gi/) · [Open the upstream Sponza demo](https://cl0nazepamm.github.io/speedball/) · [View `speedball-gi` on npm](https://www.npmjs.com/package/speedball-gi)
 
 ## Highlights
 
@@ -19,9 +19,9 @@ This Vite application extends the upstream Sponza demo with two focused test sce
 
 | Route | Scene | What it demonstrates |
 | --- | --- | --- |
-| `/` | **Sponza** | The upstream Sponza setup adapted for Vite, with a procedural sky, directional sun, auto-fitted DDGI, local reflections, probe debugging, and an animated metallic receiver. |
-| `/simple.html` | **Afterimage Court** | A lightweight colonnade with red and green walls, a skylit central path, and simple materials designed to make indirect color transfer easy to compare. |
-| `/ballpool.html` | **Ball Pool** | A physics simulation with instanced spheres, a pointer-controlled light, and continuously changing geometry that exercises dynamic GI updates. The pool width and ball count adapt to the viewport. |
+| `/speedball-gi/` | **Sponza** | The upstream Sponza setup adapted for Vite, with a procedural sky, directional sun, auto-fitted DDGI, local reflections, probe debugging, and an animated metallic receiver. |
+| `/speedball-gi/simple.html` | **Afterimage Court** | A lightweight colonnade with red and green walls, a skylit central path, and simple materials designed to make indirect color transfer easy to compare. |
+| `/speedball-gi/ballpool.html` | **Ball Pool** | A physics simulation with instanced spheres, a pointer-controlled light, and continuously changing geometry that exercises dynamic GI updates. The pool width and ball count adapt to the viewport. |
 
 Navigation links in the upper-left HUD connect all three scenes.
 
@@ -43,10 +43,10 @@ npm ci
 npm run dev
 ```
 
-Open the URL printed by Vite, normally [http://localhost:5173](http://localhost:5173), for Sponza. Then use the in-app links or open the other routes on the same origin:
+Open the URL printed by Vite, normally [http://localhost:5173/speedball-gi/](http://localhost:5173/speedball-gi/), for Sponza. Then use the in-app links or open the other routes on the same origin:
 
-- `/simple.html`
-- `/ballpool.html`
+- `/speedball-gi/simple.html`
+- `/speedball-gi/ballpool.html`
 
 ## Controls
 
@@ -108,7 +108,7 @@ Canvas MSAA is disabled because TRAA supplies the anti-aliasing stage.
 - Local probe reflections are an approximate, off-screen-stable lighting layer rather than pixel-accurate mirror reflections or path tracing.
 - The Sponza loader adjusts strongly metallic materials toward dielectric values and raises low roughness values so diffuse bounce remains readable. This is not a raw-material reference viewer for the source glTF.
 - GUI changes are not persisted. Reloading or revisiting a page restores that scene's defaults.
-- The application expects to be served from the site root because its entry points and Sponza asset URL use root-relative paths.
+- Application and Sponza asset URLs use the configured Vite base path, so the production build works below the GitHub Pages project path.
 
 ## Project structure
 
@@ -132,6 +132,10 @@ Canvas MSAA is disabled because TRAA supplies the anti-aliasing stage.
 | `npm run dev` | Start the Vite development server, normally on port 5173. |
 | `npm run build` | Build all three HTML entry points into `dist/`. |
 | `npm run preview` | Serve an existing production build locally. Run `npm run build` first. |
+
+## Deployment
+
+Every push to `main` builds all three entry points and deploys `dist/` to GitHub Pages through [the deployment workflow](.github/workflows/deploy-pages.yml).
 
 ## Sponza asset
 

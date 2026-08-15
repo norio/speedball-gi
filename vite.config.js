@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/speedball-gi/',
   server: {
     host: true,
     port: 5173,
