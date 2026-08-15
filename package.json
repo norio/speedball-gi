@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@perplexdotgg/bounce": "^1.8.1",
+    "@perplexdotgg/bounce": "^1.9.0",
     "lil-gui": "^0.21.0",
     "speedball-gi": "^0.6.7",
     "stats-gl": "^4.2.3",
