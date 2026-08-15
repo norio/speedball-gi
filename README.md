@@ -109,6 +109,7 @@ Canvas MSAA is disabled because TRAA supplies the anti-aliasing stage.
 - Probe lighting converges over time. The initial load and changes to lights, geometry, or grid structure may take several frames to settle.
 - Local probe reflections are an approximate, off-screen-stable lighting layer rather than pixel-accurate mirror reflections or path tracing.
 - The Sponza loader adjusts strongly metallic materials toward dielectric values and raises low roughness values so diffuse bounce remains readable. This is not a raw-material reference viewer for the source glTF.
+- The bundled Sponza glTF requires WebP support. WebGPU-capable browsers already provide it, so no fallback texture set is shipped.
 - GUI changes are not persisted. Reloading or revisiting a page restores that scene's defaults.
 - Application and Sponza asset URLs use the configured Vite base path, so the production build works below the GitHub Pages project path.
 
@@ -134,6 +135,8 @@ Canvas MSAA is disabled because TRAA supplies the anti-aliasing stage.
 | `npm run dev` | Start the Vite development server, normally on port 5173. |
 | `npm run build` | Build all three HTML entry points into `dist/`. |
 | `npm run preview` | Serve an existing production build locally. Run `npm run build` first. |
+| `npm test` | Verify the Sponza WebP manifest and its 30 MiB payload budget. |
+| `npm run optimize:sponza` | Convert a restored JPEG/PNG Sponza source set with `cwebp`, verify it with `dwebp`, deduplicate identical images, and update the glTF manifest. |
 
 ## Deployment
 
@@ -141,7 +144,9 @@ Every push to `main` builds all three entry points and deploys `dist/` to GitHub
 
 ## Sponza asset
 
-The bundled model is loaded from `public/Sponza/glTF/Sponza.gltf`. See [`public/Sponza/README.md`](public/Sponza/README.md) for the model's sources, processing notes, attribution, and licensing information.
+The bundled model is loaded from `public/Sponza/glTF/Sponza.gltf`. Its textures use the required `EXT_texture_webp` extension: base-color maps use quality 82, normal and metallic/roughness data maps use quality 95, and alpha masks keep lossless alpha. Byte-identical normal maps are stored once. See [`public/Sponza/README.md`](public/Sponza/README.md) for the model's sources, processing notes, attribution, and licensing information.
+
+The checked-in asset is already optimized. `npm run optimize:sponza` is intended for rebuilding after replacing the glTF directory with the original JPEG/PNG source set and requires the `cwebp` and `dwebp` executables from libwebp.
 
 ## Credits
 

@@ -29,6 +29,10 @@ The images are also re-encoded as PNG instead of TGA.
 All the materials also had a constant diffuse factor of about 0.58. I assume it was supposed to be there, so I kept it.
 I also ran the vertices and indices through a mesh optimizer.
 
+## Web delivery optimization
+
+This repository converts the source JPEG and PNG textures to the required glTF `EXT_texture_webp` extension. Base-color textures use WebP quality 82, normal and metallic/roughness data textures use quality 95, and alpha masks use lossless alpha. Identical normal maps are deduplicated before export. The conversion keeps each texture's original dimensions: 1024x1024 for the material maps and 4x4 for the white placeholder.
+
 ## Licensing notes
 
 Taken from copyright.txt in SponzaPBR\_Textures.rar
