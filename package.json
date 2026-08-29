@@ -18,7 +18,7 @@
   "dependencies": {
     "@perplexdotgg/bounce": "^1.9.0",
     "lil-gui": "^0.21.0",
-    "speedball-gi": "^0.6.7",
+    "speedball-gi": "^0.7.0",
     "stats-gl": "^4.2.3",
     "three": "0.185.1",
     "three-mesh-bvh": "0.9.14"
