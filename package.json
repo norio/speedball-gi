@@ -20,7 +20,7 @@
     "lil-gui": "^0.21.0",
     "speedball-gi": "^0.6.7",
     "stats-gl": "^4.2.3",
-    "three": "0.185.1",
+    "three": "0.186.0",
     "three-mesh-bvh": "0.9.14"
   },
   "devDependencies": {
