@@ -21,7 +21,7 @@
     "speedball-gi": "^0.6.7",
     "stats-gl": "^4.2.3",
     "three": "0.185.1",
-    "three-mesh-bvh": "0.9.14"
+    "three-mesh-bvh": "0.9.15"
   },
   "devDependencies": {
     "vite": "^8.2.1"
